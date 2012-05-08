@@ -1,0 +1,56 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Google Visualization API Sample
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart']});
+    </script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['X', 'Users', 'Items'],
+          [0.570989, -0.222797, null],
+          [0.427475, -0.517236, null],
+          [0.384599,  0.82462, null],
+          [0.585935,  0.0531997, null],
+          [0.447219, null, -0.537287],
+          [0.358615, null, 0.246051],
+          [0.292463, null, -0.403296],
+          [0.207792, null, 0.670044],
+          [0.509933, null, 0.0596952],
+          [0.531645, null, 0.18871]
+        ]);
+        /*var data = google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'Users');
+        data.addColumn('number', 'Items');
+        
+        data.add*/
+
+        var options = {
+          title: 'Users vs. Ratings comparison',
+          hAxis: {title: 'X', minValue: 0, maxValue: 0.6},
+          vAxis: {title: 'Y', minValue: -0.3, maxValue: 0.9},
+          legend: 'true'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
